@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://nextjs-marketing-website.basehub.com/changelog</loc><lastmod>2025-01-24T20:02:57.395Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/blog</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/pricing</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/privacy-policy</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/request-demo</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/sign-in</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/sign-up</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/terms</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/blog/o-poder-do-gerenciamento-agil-de-projetos-com-acme</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/changelog/atualizacao-do-compartilhamento-integrado-de-arquivos</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/changelog/funcionalidade-de-pesquisa-aprimorada</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nextjs-marketing-website.basehub.com/changelog/novas-notificacoes-personalizaveis</loc><lastmod>2025-01-24T20:02:57.396Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/changelog</loc><lastmod>2025-01-24T20:25:05.989Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/blog</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/blog/o-poder-do-gerenciamento-agil-de-projetos-com-acme</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/changelog/atualizacao-do-compartilhamento-integrado-de-arquivos</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/changelog/funcionalidade-de-pesquisa-aprimorada</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/changelog/novas-notificacoes-personalizaveis</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/dashboard</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/pricing</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/privacy-policy</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/request-demo</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/sign-in</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/sign-up</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nextjs-marketing-website.basehub.com/terms</loc><lastmod>2025-01-24T20:25:05.990Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
