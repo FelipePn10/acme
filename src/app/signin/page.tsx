@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link"; // Importando o componente Link
 import { Button } from "@/common/button";
-import { LabeledInput } from "@/app/_components/labeled-input";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 
 export default function SignIn() {
@@ -53,9 +53,9 @@ export default function SignIn() {
         <h1 className="text-2xl font-bold text-center text-white">Entre na sua conta</h1>
         <p className="mt-2 text-center text-sm text-gray-400">
           Não tem uma conta?{" "}
-          <a href="/signup" className="text-purple-500 hover:underline">
+          <Link href="/signup" className="text-purple-500 hover:underline">
             Sign up
-          </a>{" "}
+          </Link>{" "}
           para um teste gratuito.
         </p>
 
