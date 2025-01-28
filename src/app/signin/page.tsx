@@ -2,15 +2,26 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link"; // Importando o componente Link
-import { Button } from "@/common/button";
-import { Mail, Lock, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { User, Building2, Mail, Lock, ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [step, setStep] = useState('selection');
   const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    cnpj: ""
+  });
   const router = useRouter();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +33,7 @@ export default function SignIn() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
@@ -36,80 +47,171 @@ export default function SignIn() {
     }
   };
 
+  if (step === 'selection') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-dark-surface-primary">
+        <div className="max-w-4xl w-full space-y-8 p-8 bg-dark-surface-secondary rounded-xl shadow-xl">
+          <div className="flex justify-center">
+            <div className="w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center">
+              <span className="text-textOnAccent-primary text-2xl font-bold">A</span>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-dark-text-primary">Entrar</h2>
+            <p className="mt-2 text-dark-text-secondary">Selecione o tipo de conta para continuar</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button
+              onClick={() => setStep('user')}
+              className="group p-6 bg-dark-surface-tertiary rounded-xl border-2 border-dark-border hover:border-accent-500 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-4">
+                <div className="p-3 bg-accent-600 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <User className="w-6 h-6 text-textOnAccent-primary" />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-dark-text-primary">Conta Pessoal</h3>
+                  <p className="mt-2 text-sm text-dark-text-secondary">
+                    Acesse sua conta individual
+                  </p>
+                </div>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setStep('business')}
+              className="group p-6 bg-dark-surface-tertiary rounded-xl border-2 border-dark-border hover:border-accent-500 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center space-y-4">
+                <div className="p-3 bg-accent-600 rounded-full group-hover:scale-110 transition-transform duration-300">
+                  <Building2 className="w-6 h-6 text-textOnAccent-primary" />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-dark-text-primary">Conta Empresarial</h3>
+                  <p className="mt-2 text-sm text-dark-text-secondary">
+                    Acesse sua conta corporativa
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black">
-      <form
-        className="w-full max-w-md rounded-2xl bg-gray-900 p-8 shadow-lg"
-        onSubmit={handleSignIn}
-      >
-        {/* Logo */}
-        <div className="flex justify-center mb-6">
-          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-700">
-            <span className="text-white text-2xl font-bold">A</span>
+    <div className="min-h-screen flex items-center justify-center bg-dark-surface-primary">
+      <div className="max-w-md w-full space-y-8 p-8 bg-dark-surface-secondary rounded-xl shadow-xl">
+        <div className="flex justify-center">
+          <div className="w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center">
+            <span className="text-textOnAccent-primary text-2xl font-bold">A</span>
           </div>
         </div>
 
-        {/* Título e Subtítulo */}
-        <h1 className="text-2xl font-bold text-center text-white">Entre na sua conta</h1>
-        <p className="mt-2 text-center text-sm text-gray-400">
-          Não tem uma conta?{" "}
-          <Link href="/signup" className="text-purple-500 hover:underline">
-            Sign up
-          </Link>{" "}
-          para um teste gratuito.
-        </p>
-
-        {/* Erro */}
-        {error && <p className="text-red-500 text-sm mt-4 text-center">{error}</p>}
-
-        {/* Email */}
-        <div className="mt-6">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-            Email Address
-          </label>
-          <div className="relative mt-2">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="john@gmail.com"
-              className="w-full rounded-md border-0 bg-gray-800 p-4 pl-10 text-sm text-gray-200 shadow-sm placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+        <div>
+          <button
+            onClick={() => setStep('selection')}
+            className="flex items-center text-dark-text-secondary hover:text-dark-text-primary transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Voltar
+          </button>
+          
+          <div className="text-center mt-4">
+            <h2 className="text-3xl font-bold text-dark-text-primary">
+              {step === 'business' ? 'Login Empresarial' : 'Login'}
+            </h2>
+            <p className="mt-2 text-dark-text-secondary">
+              Não tem uma conta?{" "}
+              <Link href="/signup" className="text-accent-500 hover:text-accent-400">
+                Cadastre-se
+              </Link>
+            </p>
           </div>
         </div>
 
-        {/* Password */}
-        <div className="mt-6">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-300">
-            Password
-          </label>
-          <div className="relative mt-2">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="********"
-              className="w-full rounded-md border-0 bg-gray-800 p-4 pl-10 text-sm text-gray-200 shadow-sm placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-500" />
+        {error && (
+          <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <p className="text-red-500 text-sm text-center">{error}</p>
           </div>
-        </div>
+        )}
 
-        {/* Botão */}
-        <Button
-          type="submit"
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-purple-600 px-4 py-2 text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
-        >
-          Login <ArrowRight className="h-4 w-4" />
-        </Button>
-      </form>
+        <form onSubmit={handleSignIn} className="space-y-6">
+          {step === 'business' && (
+            <div>
+              <label className="block text-sm font-medium text-dark-text-secondary">
+                CNPJ
+              </label>
+              <div className="mt-1 relative">
+                <input
+                  type="text"
+                  name="cnpj"
+                  placeholder="00.000.000/0000-00"
+                  className="block w-full px-4 py-3 bg-dark-surface-tertiary border border-dark-border rounded-lg text-dark-text-primary placeholder-dark-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                  value={formData.cnpj}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Building2 className="absolute right-3 top-3 h-5 w-5 text-dark-text-tertiary" />
+              </div>
+            </div>
+          )}
+
+          <div>
+            <label className="block text-sm font-medium text-dark-text-secondary">
+              Email
+            </label>
+            <div className="mt-1 relative">
+              <input
+                type="email"
+                name="email"
+                placeholder="john@empresa.com"
+                className="block w-full px-4 py-3 bg-dark-surface-tertiary border border-dark-border rounded-lg text-dark-text-primary placeholder-dark-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+              <Mail className="absolute right-3 top-3 h-5 w-5 text-dark-text-tertiary" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-dark-text-secondary">
+              Senha
+            </label>
+            <div className="mt-1 relative">
+              <input
+                type="password"
+                name="password"
+                placeholder="********"
+                className="block w-full px-4 py-3 bg-dark-surface-tertiary border border-dark-border rounded-lg text-dark-text-primary placeholder-dark-text-tertiary focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+              <Lock className="absolute right-3 top-3 h-5 w-5 text-dark-text-tertiary" />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-lg shadow-sm text-sm font-medium text-textOnAccent-primary bg-accent-600 hover:bg-accent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-500 transition-colors"
+          >
+            Entrar
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </button>
+
+          <p className="text-center text-sm text-dark-text-secondary">
+            Esqueceu sua senha?{" "}
+            <Link href="/forgot-password" className="text-accent-500 hover:text-accent-400">
+              Recuperar senha
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
